@@ -10,4 +10,6 @@ then
   source ./custom
 fi
 
+pushd /srv/www > /dev/null
 exec /usr/sbin/httpd -DFOREGROUND
+popd > /dev/null
