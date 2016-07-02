@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -f ./setup ]
+then
+  source ./setup
+fi
+
+if [ -f ./custom ]
+then
+  source ./custom
+fi
+
+exec /usr/sbin/httpd -DFOREGROUND

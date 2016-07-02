@@ -1,0 +1,25 @@
+#!/bin/bash
+
+declare -x APACHE_HOSTNAME
+[[ -z "${APACHE_HOSTNAME}" ]] && APACHE_HOSTNAME=${HOSTNAME}
+
+/usr/bin/templater -d -p apache \
+  -o /etc/apache2/httpd.conf \
+  /etc/templates/httpd.conf.tmpl
+
+if [[ $? -ne 0 ]]
+then
+  /bin/s6-svscanctl -t /etc/s6
+fi
+
+/usr/bin/templater -d -p apache \
+  -o /etc/apache2/host.conf \
+  /etc/templates/host.conf.tmpl
+
+if [[ $? -ne 0 ]]
+then
+  /bin/s6-svscanctl -t /etc/s6
+fi
+
+chown -R apache:apache \
+  /srv/www
