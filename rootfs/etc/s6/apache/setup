@@ -1,8 +1,10 @@
 #!/bin/bash
 
 declare -x APACHE_HOSTNAME
+declare -x APACHE_WEBROOT
 
 [[ -z "${APACHE_HOSTNAME}" ]] && APACHE_HOSTNAME=${HOSTNAME}
+[[ -z "${APACHE_WEBROOT}" ]] && APACHE_WEBROOT="/srv/www"
 
 /usr/bin/templater -d -p apache \
   -o /etc/apache2/httpd.conf \
