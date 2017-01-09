@@ -22,5 +22,4 @@ then
   /bin/s6-svscanctl -t /etc/s6
 fi
 
-chown -R apache:apache \
-  /srv/www
+find /srv/www \( \! -user apache -o \! -group apache \) -print0 | xargs -0 chown apache:apache
