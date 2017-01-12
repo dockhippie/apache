@@ -17,7 +17,7 @@ RUN apk update && \
     -d /srv/www \
     -g apache \
     -s /bin/bash \
-    -m \
+    -M \
     apache && \
   apk add \
     apache2 \
