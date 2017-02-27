@@ -10,6 +10,11 @@ then
   source ./custom
 fi
 
+for FILE in custom.d/*.sh
+do
+  source ${FILE}
+done
+
 pushd /srv/www > /dev/null
 exec /usr/sbin/httpd -DFOREGROUND
 popd > /dev/null
