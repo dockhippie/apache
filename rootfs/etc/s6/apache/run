@@ -10,11 +10,14 @@ then
   source ./custom
 fi
 
-for FILE in custom.d/*.sh
-do
-  source ${FILE}
-done
+if [ -d ./custom.d ]
+then
+  for FILE in ./custom.d/*.sh
+  do
+    source ${FILE}
+  done
+fi
 
 pushd /srv/www > /dev/null
-exec /usr/sbin/httpd -DFOREGROUND
+  exec /usr/sbin/httpd -DFOREGROUND
 popd > /dev/null
