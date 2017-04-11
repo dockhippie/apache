@@ -1,6 +1,7 @@
 #!/bin/bash
 source /usr/local/bin/entrypoint
 
+echo "> writing apache config"
 /usr/bin/templater -d -p apache \
   -o /etc/apache2/httpd.conf \
   /etc/templates/httpd.conf.tmpl
@@ -8,8 +9,10 @@ source /usr/local/bin/entrypoint
 if [[ $? -ne 0 ]]
 then
   /bin/s6-svscanctl -t /etc/s6
+  exit 1
 fi
 
+echo "> writing host config"
 /usr/bin/templater -d -p apache \
   -o /etc/apache2/host.conf \
   /etc/templates/host.conf.tmpl
@@ -17,6 +20,8 @@ fi
 if [[ $? -ne 0 ]]
 then
   /bin/s6-svscanctl -t /etc/s6
+  exit 1
 fi
 
-find /srv/www \( \! -user apache -o \! -group apache \) -print0 | xargs -0 chown apache:apache
+echo "> chown files"
+find /srv/www \( \! -user apache -o \! -group apache \) -print0 | xargs -0 -r chown apache:apache

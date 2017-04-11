@@ -12,12 +12,13 @@ fi
 
 if [ -d ./custom.d ]
 then
-  for FILE in ./custom.d/*.sh
+  for FILE in $(find ./custom.d -type f -iname *.sh | sort)
   do
     source ${FILE}
   done
 fi
 
 pushd /srv/www > /dev/null
+  echo "> starting apache"
   exec /usr/sbin/httpd -DFOREGROUND
 popd > /dev/null
