@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-for FILE in /etc/entrypoint.d/*.sh
-do
-  source ${FILE}
-done
-
-exec $@

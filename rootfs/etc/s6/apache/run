@@ -19,6 +19,6 @@ then
 fi
 
 pushd /srv/www > /dev/null
-  echo "> starting apache"
+  echo "> starting apache service"
   exec /usr/sbin/httpd -DFOREGROUND
 popd > /dev/null
