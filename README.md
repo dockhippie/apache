@@ -30,9 +30,7 @@ ENV APACHE_WEBROOT /srv/www
 
 ## Inherited environment variables
 
-```bash
-ENV CRON_ENABLED false
-```
+* [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 
 ## Contributing
