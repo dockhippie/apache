@@ -20,4 +20,4 @@ then
 fi
 
 echo "> chown webroot files"
-find /srv/www \( \! -user apache -o \! -group apache \) -print0 | xargs -0 -r chown apache:apache
+find ${APACHE_WEBROOT} \( \! -user apache -o \! -group apache \) -print0 | xargs -0 -r chown apache:apache
