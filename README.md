@@ -25,6 +25,9 @@ These are docker images for [Apache](https://httpd.apache.org/) running on an [A
 ```bash
 ENV APACHE_HOSTNAME $HOSTNAME
 ENV APACHE_WEBROOT /srv/www
+ENV APACHE_SERVER_TOKENS Prod
+ENV APACHE_SERVER_SIGNATURE Off
+ENV APACHE_TRACE_ENABLE Off
 ```
 
 

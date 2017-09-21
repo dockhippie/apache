@@ -1,4 +1,4 @@
-ServerTokens OS
+ServerTokens {{ envString "SERVER_TOKENS" }}
 ServerRoot /var/www
 
 Mutex default:/run/apache2
@@ -105,7 +105,8 @@ LoadModule rewrite_module modules/mod_rewrite.so
 
 ServerAdmin root@{{ envString "HOSTNAME" }}
 ServerName {{ envString "HOSTNAME" }}
-ServerSignature On
+ServerSignature {{ envString "SERVER_SIGNATURE" }}
+TraceEnable {{ envString "TRACE_ENABLE" }}
 DocumentRoot /var/www/localhost/htdocs
 
 <Directory />
