@@ -8,6 +8,7 @@ ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["/bin/s6-svscan", "/etc/s6"]
 
 RUN apk update && \
+  apk upgrade && \
   mkdir -p \
     /srv/www && \
   groupadd \
