@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail
+source /usr/bin/entrypoint
 
-CHECK="$(curl -sL -w %{http_code} -o /dev/null http://localhost:8080/)"
+CHECK="$(curl -sL -w %{http_code} -o /dev/null ${APACHE_HEALTHCHECK_URL})"
 
-if [[ "${CHECK}" == "200" ]]
+if [[ "${CHECK}" == "${APACHE_HEALTHCHECK_CODE}" ]]
 then
   exit 0
 fi

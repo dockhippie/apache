@@ -1,23 +1,30 @@
 #!/bin/bash
 source /usr/bin/entrypoint
 
-echo "> writing apache config"
-/usr/bin/templater -d -p apache -o /etc/apache2/httpd.conf /etc/templates/httpd.conf.tmpl
-
-if [[ $? -ne 0 ]]
+if [[ "${APACHE_SKIP_TEMPLATES}" != "true" ]]
 then
-  /bin/s6-svscanctl -t /etc/s6
-  exit 1
+  echo "> writing apache config"
+  /usr/bin/templater -d -p apache -o /etc/apache2/httpd.conf /etc/templates/httpd.conf.tmpl
+
+  if [[ $? -ne 0 ]]
+  then
+    /bin/s6-svscanctl -t /etc/s6
+    exit 1
+  fi
+
+  echo "> writing host config"
+  /usr/bin/templater -d -p apache -o /etc/apache2/host.conf /etc/templates/host.conf.tmpl
+
+  if [[ $? -ne 0 ]]
+  then
+    /bin/s6-svscanctl -t /etc/s6
+    exit 1
+  fi
 fi
 
-echo "> writing host config"
-/usr/bin/templater -d -p apache -o /etc/apache2/host.conf /etc/templates/host.conf.tmpl
-
-if [[ $? -ne 0 ]]
+if [[ "${APACHE_SKIP_CHOWN}" != "true" ]]
 then
-  /bin/s6-svscanctl -t /etc/s6
-  exit 1
+  echo "> chown webroot files"
+  find ${APACHE_WEBROOT} \( \! -user apache -o \! -group apache \) -print0 | xargs -0 -r chown apache:apache
 fi
 
-echo "> chown webroot files"
-find ${APACHE_WEBROOT} \( \! -user apache -o \! -group apache \) -print0 | xargs -0 -r chown apache:apache

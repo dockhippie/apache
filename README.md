@@ -7,7 +7,7 @@ These are docker images for [Apache](https://httpd.apache.org/) running on an [A
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/apache/tree/master) available as ```webhippie/apache:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/apache/)
+To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/apache/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/apache/tags/), these lists are always up to date.
 
 
 ## Volumes
@@ -30,6 +30,8 @@ ENV APACHE_SERVER_SIGNATURE Off
 ENV APACHE_TRACE_ENABLE Off
 ENV APACHE_COMBINED_FORMAT combinedio
 ENV APACHE_PROXY_FORMAT proxyio
+ENV APACHE_SKIP_TEMPLATES false
+ENV APACHE_SKIP_CHOWN false
 ```
 
 
@@ -56,5 +58,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2018 Thomas Boerger <http://www.webhippie.de>
 ```

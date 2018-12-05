@@ -18,7 +18,7 @@ then
   done
 fi
 
-pushd /srv/www > /dev/null
+pushd ${APACHE_WEBROOT} > /dev/null
   echo "> starting apache service"
   exec /usr/sbin/httpd -DFOREGROUND
 popd > /dev/null
