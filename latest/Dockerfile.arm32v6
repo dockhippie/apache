@@ -1,4 +1,4 @@
-FROM webhippie/alpine:latest
+FROM webhippie/alpine:latest-arm32v6
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="Apache" \
@@ -37,4 +37,4 @@ RUN apk update && \
     /var/cache/apk/* \
     /etc/apache2/*
 
-ADD rootfs /
+COPY ./overlay ./overlay-arm32v6 /
