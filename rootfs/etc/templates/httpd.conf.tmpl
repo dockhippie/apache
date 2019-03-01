@@ -1,4 +1,4 @@
-ServerTokens {{ envString "SERVER_TOKENS" }}
+ServerTokens {{ getenv "APACHE_SERVER_TOKENS" }}
 ServerRoot /var/www
 
 Mutex default:/run/apache2
@@ -103,10 +103,10 @@ LoadModule rewrite_module modules/mod_rewrite.so
   Group apache
 </IfModule>
 
-ServerAdmin root@{{ envString "HOSTNAME" }}
-ServerName {{ envString "HOSTNAME" }}
-ServerSignature {{ envString "SERVER_SIGNATURE" }}
-TraceEnable {{ envString "TRACE_ENABLE" }}
+ServerAdmin root@{{ getenv "APACHE_HOSTNAME" }}
+ServerName {{ getenv "APACHE_HOSTNAME" }}
+ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" }}
+TraceEnable {{ getenv "APACHE_TRACE_ENABLE" }}
 DocumentRoot /var/www/localhost/htdocs
 
 <Directory />
@@ -143,8 +143,8 @@ LogLevel warn
 
   SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" forwarded
 
-  CustomLog /dev/stdout {{ envString "COMBINED_FORMAT" }} env=!forwarded
-  CustomLog /dev/stdout {{ envString "PROXY_FORMAT" }} env=forwarded
+  CustomLog /dev/stdout {{ getenv "APACHE_COMBINED_FORMAT" }} env=!forwarded
+  CustomLog /dev/stdout {{ getenv "APACHE_PROXY_FORMAT" }} env=forwarded
 </IfModule>
 
 <IfModule alias_module>

@@ -4,7 +4,9 @@ source /usr/bin/entrypoint
 if [[ "${APACHE_SKIP_TEMPLATES}" != "true" ]]
 then
   echo "> writing apache config"
-  /usr/bin/templater -d -p apache -o /etc/apache2/httpd.conf /etc/templates/httpd.conf.tmpl
+  /usr/bin/gomplate -V \
+    -o /etc/apache2/httpd.conf \
+    -f /etc/templates/httpd.conf.tmpl
 
   if [[ $? -ne 0 ]]
   then
@@ -13,7 +15,9 @@ then
   fi
 
   echo "> writing host config"
-  /usr/bin/templater -d -p apache -o /etc/apache2/host.conf /etc/templates/host.conf.tmpl
+  /usr/bin/gomplate -V \
+    -o /etc/apache2/host.conf \
+    -f /etc/templates/host.conf.tmpl
 
   if [[ $? -ne 0 ]]
   then
