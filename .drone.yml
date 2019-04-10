@@ -179,4 +179,30 @@ trigger:
 depends_on:
 - manifest-latest
 
+---
+kind: pipeline
+name: trigger-downstream
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: downstream
+  pull: always
+  image: plugins/downstream:1
+  settings:
+    repositories:
+    - dockhippie/php-apache
+    server: https://cloud.drone.io
+    token:
+      from_secret: downstream_token
+
+trigger:
+  ref:
+  - refs/heads/master
+
+depends_on:
+- manifest-latest
+
 ...

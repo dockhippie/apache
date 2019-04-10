@@ -7,4 +7,7 @@ local name = 'webhippie/apache';
   pipeline.build(name, 'latest', 'latest', 'arm64v8'),
   pipeline.manifest('latest', 'latest', ['amd64', 'arm32v6', 'arm64v8']),
   pipeline.microbadger(['latest']),
+  pipeline.downstream(['latest'], [
+    'dockhippie/php-apache',
+  ]),
 ]
