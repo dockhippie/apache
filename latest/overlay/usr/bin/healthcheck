@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eo pipefail
 source /usr/bin/entrypoint
 
 CHECK="$(curl -sL -w %{http_code} -o /dev/null ${APACHE_HEALTHCHECK_URL})"
