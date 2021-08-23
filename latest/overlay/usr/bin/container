@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eo pipefail
+source /usr/bin/entrypoint
+
+for FILE in $(find /etc/container.d -type f -iname \*.sh | sort); do
+    source ${FILE}
+done
+
+pushd ${APACHE_WEBROOT} >/dev/null
+    echo "> starting apache service"
+    exec httpd -DFOREGROUND
+popd >/dev/null
