@@ -1,4 +1,4 @@
-FROM webhippie/alpine:latest-amd64@sha256:5aeafc05ab303aff0383427666cdf678a4e03a9724672a332ee3387af50f99db
+FROM webhippie/alpine:latest-amd64@sha256:6c3f8a0a0759b3b2fc25211e161371a6b0ecd0baef090a9c4117def9e973d383
 
 VOLUME ["/etc/apache2/custom.d"]
 EXPOSE 8080
