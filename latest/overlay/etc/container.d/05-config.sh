@@ -7,7 +7,7 @@ if [[ "${APACHE_SKIP_TEMPLATES}" != "true" ]]; then
         -f /etc/templates/httpd.conf.tmpl || exit 1
 
     echo "> writing host config"
-    /usr/bin/gomplate -V \
+    gomplate -V \
         -o /etc/apache2/host.conf \
         -f /etc/templates/host.conf.tmpl || exit 1
 fi
