@@ -29,6 +29,7 @@ APACHE_SKIP_CHOWN = false
 APACHE_SKIP_TEMPLATES = false
 APACHE_TRACE_ENABLE = Off
 APACHE_WEBROOT = /srv/www
+APACHE_PORT = 8080
 ```
 
 ## Inherited environment variables
