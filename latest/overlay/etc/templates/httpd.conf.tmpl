@@ -3,7 +3,7 @@ ServerRoot /var/www
 
 Mutex default:/run/apache2
 
-Listen 8080
+Listen {{ getenv "APACHE_PORT" }}
 
 LoadModule authn_file_module modules/mod_authn_file.so
 #LoadModule authn_dbm_module modules/mod_authn_dbm.so

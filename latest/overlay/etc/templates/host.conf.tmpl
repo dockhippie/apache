@@ -1,4 +1,4 @@
-<VirtualHost *:8080>
+<VirtualHost *:{{ getenv "APACHE_PORT" }}>
   DocumentRoot "{{ getenv "APACHE_WEBROOT" }}"
 
   SetEnvIf Request_URI "^/favicon\.ico$" dontlog
