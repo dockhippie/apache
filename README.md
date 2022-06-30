@@ -1,21 +1,24 @@
 # apache
 
-[![Docker Build](https://github.com/dockhippie/apache/workflows/docker/badge.svg)](https://github.com/dockhippie/apache/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/apache/workflows/readme/badge.svg)](https://github.com/dockhippie/apache/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/apache/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/apache)](https://hub.docker.com/r/webhippie/apache) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/apache)
+[![Docker Build](https://github.com/dockhippie/apache/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/apache/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/apache)
 
-These are docker images for [Apache](https://httpd.apache.org/) running on our [Alpine Linux image](https://github.com/dockhippie/alpine).
+These are docker images for [Apache][upstream] running on our
+[Alpine Linux image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/apache/tags) or [Quay](https://quay.io/repository/webhippie/apache?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/apache).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
-* /srv/www
-* /etc/apache2/custom.d
+*  /srv/www
+*  /etc/apache2/custom.d
 
 ## Ports
 
-* 8080
+*  8080
 
 ## Available environment variables
 
@@ -53,3 +56,9 @@ MIT
 ```console
 Copyright (c) 2018 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: https://httpd.apache.org
+[parent]: https://github.com/dockhippie/alpine
+[dockerhub]: https://hub.docker.com/r/webhippie/apache/tags
+[quayio]: https://quay.io/repository/webhippie/apache?tab=tags
+[github]: https://github.com/dockhippie/apache
