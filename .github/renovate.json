@@ -11,10 +11,7 @@
     "docker": {
         "digest": {
             "groupName": "Docker digests",
-            "automerge": true,
-            "group": {
-                "prTitle": "Update image digests"
-            }
+            "automerge": true
         }
     },
     "packageRules": []
