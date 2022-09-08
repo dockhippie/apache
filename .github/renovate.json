@@ -8,5 +8,14 @@
     "ignorePaths": [
         "archive/"
     ],
+    "docker": {
+        "digest": {
+            "groupName": "Docker digests",
+            "automerge": true,
+            "group": {
+                "prTitle": "Update image digests"
+            }
+        }
+    },
     "packageRules": []
 }
