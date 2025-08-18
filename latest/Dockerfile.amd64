@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/alpine:latest-amd64@sha256:b204b66a0b15f7b03bd06b49e303c41cb724e301849a33465cea5ba6eba84483
+FROM ghcr.io/dockhippie/alpine:latest-amd64
 
 VOLUME ["/etc/apache2/custom.d"]
 EXPOSE 8080
