@@ -8,6 +8,9 @@ name: readme
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   readme:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
           target: webhippie/apache
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          description: Docker image for Apache
+          description: Docker images for Apache
           readme: README.md
 
       - name: Quay readme

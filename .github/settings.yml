@@ -1,7 +1,7 @@
 ---
 repository:
   name: apache
-  description: Docker images for apache
+  description: Docker images for Apache
   topics: docker, image
 
   private: false
